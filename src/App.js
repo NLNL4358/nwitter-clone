@@ -10,6 +10,8 @@ import Profile from './page/Profile';
 /* component */
 import Layout from './component/Layout';
 import LoadingScreen from './component/LoadingScreen';
+import ProtectedRoute from './component/ProtectedRoute';
+
 
 /* firebase.js 에서 받아오는 firebase 기능들 */
 import { auth } from './firebase';
@@ -35,8 +37,17 @@ function App() {
       {isLoading ? <LoadingScreen/> : 
       <Routes>
         <Route path='/' element={<Layout></Layout>}> {/* Layout 은 children으로 Home과 Profile을 가짐 - 인증된 사용자만 볼 수 있도록 할것임*/}
-          <Route index element={<Home></Home>}/>
-          <Route path='profile' element={<Profile></Profile>}/>
+          <Route index element={
+            <ProtectedRoute> 
+                  {/* ProtectedRoute를 사용하여 로그인된 유저만 Home를 리턴받음 아니면 계정생성으로 가게끔 함 */}
+              <Home></Home>
+            </ProtectedRoute>
+          }/>
+          <Route path='profile' element={
+            <ProtectedRoute>
+              <Profile></Profile>
+            </ProtectedRoute>
+          }/>
         </Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/create-account' element={<CreateAccount></CreateAccount>}></Route>

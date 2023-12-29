@@ -1,4 +1,6 @@
-<<<<<<< HEAD
+
+# nwitter-clone
+
 ## 클론코딩 https://nomadcoders.co/nwitter/lectures/4515
  ㄴ 위의 코드는 TypeScript로 작성했는데 뭐 문제없겠지 
 
@@ -17,6 +19,4 @@ npm install firebase@10.1.0
 npm install @firebase/auth  <!-- firebase 는 각 모듈을 따로 임포트 해야한다 크기때문에 각각 임포트하도록 해둠 -->
 
 
-=======
-# nwitter-clone
-노마드 코더 클론 따라하기 --> 
+

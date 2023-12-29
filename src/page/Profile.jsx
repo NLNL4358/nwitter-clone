@@ -1,3 +1,9 @@
-export default function Profile(){
-  return <h3>Profile</h3>
+import React from 'react'
+
+function Profile() {
+  return (
+    <div>Profile</div>
+  )
 }
+
+export default Profile
