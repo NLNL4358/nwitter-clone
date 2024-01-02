@@ -19,6 +19,7 @@
 
 .LoginFrom{
   margin-top: 50px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -45,5 +46,22 @@
 
 .errorMessageInLogin{
   font-weight: 600;
+  text-align: center;
   color: tomato;
+}
+
+.goToLoginPageWrap{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.goToLoginPageSpan{
+
+}
+.goToLoginPageLink{
+  color: #1d9bf0;
+  margin-left: 20px;
 }

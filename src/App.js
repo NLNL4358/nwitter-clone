@@ -14,7 +14,7 @@ import ProtectedRoute from './component/ProtectedRoute';
 
 
 /* firebase.js 에서 받아오는 firebase 기능들 */
-import { auth } from './firebase';
+import { auth } from './firebase'; /* authentication */
 
 function App() {
 
@@ -39,7 +39,7 @@ function App() {
         <Route path='/' element={<Layout></Layout>}> {/* Layout 은 children으로 Home과 Profile을 가짐 - 인증된 사용자만 볼 수 있도록 할것임*/}
           <Route index element={
             <ProtectedRoute> 
-                  {/* ProtectedRoute를 사용하여 로그인된 유저만 Home를 리턴받음 아니면 계정생성으로 가게끔 함 */}
+                  {/* ProtectedRoute를 사용하여 로그인된 유저만 Children인 Home를 리턴받음 아니면 계정생성으로 가게끔 함 */}
               <Home></Home>
             </ProtectedRoute>
           }/>

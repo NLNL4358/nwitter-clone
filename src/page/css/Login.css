@@ -1,0 +1,21 @@
+.LoginPage{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.goToCreateAccountPageWrap{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.goToCreateAccountPageSpan{
+
+}
+.goToCreateAccountPageLink{
+  color: #1d9bf0;
+  margin-left: 20px;
+}

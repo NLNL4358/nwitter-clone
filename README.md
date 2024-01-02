@@ -12,10 +12,16 @@
 ## npm install list
 
 npm install react-router-dom@6.14.2
+
 npm install styled-reset
+
 npm install styled-components@6.0.7
 
+
+
+
 npm install firebase@10.1.0
+
 npm install @firebase/auth  <!-- firebase 는 각 모듈을 따로 임포트 해야한다 크기때문에 각각 임포트하도록 해둠 -->
 
 

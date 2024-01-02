@@ -1,5 +1,6 @@
+import React from 'react'
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 
 /* css */
@@ -9,6 +10,13 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 /* 로그인을 위한 auth */
 import { auth } from "../firebase";
+import { FirebaseError } from "firebase/app";
+
+
+/* Error management */
+const errors = {
+  "auth/email-already-in-use" : "이E-mail은 이미 사용중 입니다.",
+}
 
 export default function CreateAccount(){
   const navigate = useNavigate();
@@ -22,6 +30,7 @@ export default function CreateAccount(){
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    setError(""); /* 에러초기화 */
 
     /* 로딩중이거나 비어있으면 return */
     if(isLoading || name === "" || email === "" || password === "")return;
@@ -46,7 +55,11 @@ export default function CreateAccount(){
       navigate("/");
 
     }catch(error){
-      setError(error.message);
+      console.log(error.code, error.message);
+
+      if(error instanceof FirebaseError){
+        setError(error.message)
+      }
     }
     finally{
       setLoading(false)
@@ -69,6 +82,10 @@ export default function CreateAccount(){
           <input className="LoginInput " type="submit" value={isLoading ? "Loading..." : "Create account"} />
         </form>
         {error !== "" ? <h4 className="errorMessageInLogin">{error}</h4> : null}
+        <div className="goToLoginPageWrap">
+          <span className='goToLoginPageSpan'>Already have an account?</span>
+          <Link className="goToLoginPageLink" to='/login'>Log in</Link>
+        </div>
       </div>
     </div>
   );
